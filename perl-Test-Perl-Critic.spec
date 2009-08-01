@@ -1,22 +1,22 @@
-%define module  Test-Perl-Critic
-%define name    perl-%{module}
-%define version 1.01
-%define release %mkrel 4
+%define upstream_name    Test-Perl-Critic
+%define upstream_version 1.01
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Use Perl::Critic in test programs
-License:        GPL or Artistic
-Group:          Development/Perl
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Test/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Use Perl::Critic in test programs
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(Perl::Critic)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description 
 Test::Perl::Critic wraps the Perl::Critic engine in a convenient subroutine
@@ -26,7 +26,7 @@ ultimate convenience (at the expense of some flexibility), see the criticism
 pragma.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -47,5 +47,3 @@ rm -rf %{buildroot}
 %doc INSTALL Changes LICENSE README
 %{perl_vendorlib}/Test
 %{_mandir}/*/*
-
-
