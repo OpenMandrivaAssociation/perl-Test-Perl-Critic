@@ -1,15 +1,15 @@
 %define upstream_name    Test-Perl-Critic
-%define upstream_version 1.02
+%define upstream_version 1.04
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Use Perl::Critic in test programs
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/Perl-Critic/Test-Perl-Critic
+Source0:	https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Perl-Critic-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
