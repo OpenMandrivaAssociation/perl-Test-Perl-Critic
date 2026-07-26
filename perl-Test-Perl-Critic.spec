@@ -1,15 +1,13 @@
 %define upstream_name    Test-Perl-Critic
-%define upstream_version 1.04
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	1.04
+Release:	2
 
 Summary:	Use Perl::Critic in test programs
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/Perl-Critic/Test-Perl-Critic
-Source0:	https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Perl-Critic-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Perl-Critic-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -24,7 +22,7 @@ ultimate convenience (at the expense of some flexibility), see the criticism
 pragma.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -48,9 +46,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Sat Aug 01 2009 Jérôme Quelin <jquelin@mandriva.org> 1.10.0-1mdv2010.0
 + Revision: 405590
-- rebuild using %%perl_convert_version
-
-* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.01-4mdv2009.0
+- rebuild using %1.04 Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.01-4mdv2009.0
 + Revision: 258576
 - rebuild
 
